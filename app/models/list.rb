@@ -6,4 +6,14 @@ class List < ActiveRecord::Base
   def destroy_list_tasks
     self.tasks.destroy_all
   end
-end
+
+  def show_completed_tasks
+    completed_tasks = []
+    self.tasks.each() do |task|
+      if task.complete == true
+        completed_tasks.push(task)
+      end
+    end
+    return completed_tasks
+    end
+  end

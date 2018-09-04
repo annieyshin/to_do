@@ -25,3 +25,12 @@
             :method => "delete"} %></p>
 
 <p><%= link_to "Return to lists", lists_path %></p>
+
+<h3>Completed Tasks</h3>
+<% if @list.show_completed_tasks == [] %>
+  <p><%= "There are no completed tasks" %></p>
+<% else %>
+  <% @list.show_completed_tasks.each do |task| %>
+    <p><%= task.description %></p>
+  <% end %>
+<% end %>
